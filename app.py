@@ -26,15 +26,14 @@ for t in times:
     gfp_levels.append(gfp)
 
 # Petri dish glow as colored block emoji with intensity
-max_gfp = max(gfp_levels)
 normalized_gfp = min(gfp_levels[-1] / 10, 1.0)  # normalize last GFP level
 
-# Create glow intensity bar with green squares
+# Create glow intensity bar with green squares (use st.write instead of markdown)
 glow_blocks = int(normalized_gfp * 10)
 petri_display = "🟩" * glow_blocks + "⬜" * (10 - glow_blocks)
 
 st.subheader("🧫 Petri Dish Glow Intensity")
-st.markdown(f"<h2 style='color:green'>{petri_display}</h2>", unsafe_allow_html=True)
+st.write(petri_display)
 st.caption("More green blocks = stronger GFP glow")
 
 # GFP Expression Graph using Streamlit line_chart
@@ -51,4 +50,3 @@ with st.expander("What’s Going On?"):
 - The math behind it:  
   `dGFP/dt = α - δ × GFP`
 """)
-
