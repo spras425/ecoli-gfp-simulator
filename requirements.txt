@@ -1,2 +1,1 @@
-pip install streamlit matplotlib numpy
 streamlit run app.py
